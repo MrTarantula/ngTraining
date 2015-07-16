@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.22823.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{035412BD-ACDD-4E33-944E-8A7CB7F92BEF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FC33121E-8A07-4083-A9A8-F1A2A4DDF04D}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ngTraining", "src\ngTraining\ngTraining.xproj", "{BBA5B9E3-A901-4AEE-BD26-CF69D49B2500}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BBA5B9E3-A901-4AEE-BD26-CF69D49B2500}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBA5B9E3-A901-4AEE-BD26-CF69D49B2500}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBA5B9E3-A901-4AEE-BD26-CF69D49B2500}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBA5B9E3-A901-4AEE-BD26-CF69D49B2500}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BBA5B9E3-A901-4AEE-BD26-CF69D49B2500} = {035412BD-ACDD-4E33-944E-8A7CB7F92BEF}
+	EndGlobalSection
+EndGlobal
