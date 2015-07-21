@@ -8,10 +8,30 @@
     <link href="style.css" rel="stylesheet" />
 </head>
 <body>
-    <div id="wrapper" class="container">
+    <div id="wrapper" class="container" ng-app="app" ng-controller="PartyController as partyCtrl">
         <h1 class="page-header">Add Party</h1>
         <div class="row">
             <div class="well col-lg-10">
+                <form class="form">
+                    <div class="form-group col-lg-4">
+                        <label for="name">Name:</label>
+                        <input type="text" class="form-control" id="name" placeholder="Party Name" ng-model="newParty.name"/>
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <label for="address">Address:</label>
+                        <input type="text" class="form-control" id="address" placeholder="Party Address" ng-model="newParty.address"/>
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <label for="crimes">Crime:</label>
+                        <select class="form-control" id="crimes" ng-model="newParty.crime" ng-options="crime for crime in partyCtrl.crimes">
+                            <option value="" disabled selected></option>
+                        </select>
+                    </div>
+                    <div class="form-group col-lg-12">
+                        <button type="button" class="btn btn-primary" ng-click="partyCtrl.add()">Add Party</button>
+                        <button type="button" class="btn btn-default" ng-click="partyCtrl.clear()">Clear</button>
+                    </div>
+                </form>
             </div>
         </div>
         <div class="row">
