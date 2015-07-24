@@ -12,23 +12,27 @@
         <h1 class="page-header">Add Party</h1>
         <div class="row">
             <div class="well col-lg-10">
-                <form class="form">
+                <form class="form" ng-submit="partyCtrl.add()">
                     <div class="form-group col-lg-4">
                         <label for="name">Name:</label>
                         <input type="text" class="form-control" id="name" placeholder="Party Name" ng-model="newParty.name"/>
                     </div>
-                    <div class="form-group col-lg-4">
+                    <div class="form-group col-lg-3">
                         <label for="address">Address:</label>
                         <input type="text" class="form-control" id="address" placeholder="Party Address" ng-model="newParty.address"/>
                     </div>
-                    <div class="form-group col-lg-4">
+                    <div class="form-group col-lg-3">
                         <label for="crimes">Crime:</label>
                         <select class="form-control" id="crimes" ng-model="newParty.crime" ng-options="crime for crime in partyCtrl.crimes">
-                            <option value="" disabled selected></option>
+                            <option value="" disabled selected>Select a Crime</option>
                         </select>
                     </div>
+                    <div class="form-group col-lg-2">
+                        <label for="birthDate">Birth Date:</label>
+                        <input type="text" class="form-control" id="birthDate" placeholder="Birth Date" ng-model="newParty.birthDate" /> 
+                    </div>
                     <div class="form-group col-lg-12">
-                        <button type="button" class="btn btn-primary" ng-click="partyCtrl.add()">Add Party</button>
+                        <button type="submit" class="btn btn-primary">Add Party</button>
                         <button type="button" class="btn btn-default" ng-click="partyCtrl.clear()">Clear</button>
                     </div>
                 </form>
@@ -36,6 +40,31 @@
         </div>
         <div class="row">
             <div class="well col-lg-10">
+                <div class="form-group form-inline">
+                    <label for="filter">Filter:</label>
+                    <input type="text" id="filter" class="form-control"
+                           placeholder="Enter Name" ng-model="search.name"/>
+                    <button type="button" class="btn btn-default"
+                            ng-click="partyCtrl.clearFilter()"
+                            ng-class="search.name == null || search.name.length == 0 ? 'btn-default' : 'btn-danger'">Clear Filter</button>
+                </div>
+                <table class="table">
+                    <tr>
+                        <th ng-click="orderByField = 'name'">Name</th>
+                        <th ng-click="orderByField = 'address'">Address</th>
+                        <th ng-click="orderByField = 'crime'">Crime</th>
+                        <th ng-click="orderByField = 'birthDate'">Birth Date</th>
+                        <th></th>
+                    </tr>
+                    <tr ng-repeat="party in partyCtrl.parties | filter:search | orderBy:orderByField">
+                        <td>{{party.name }}</td>
+                        <td>{{party.address}}</td>
+                        <td>{{party.crime}}</td>
+                        <td>{{party.birthDate}}</td>
+                        <td><button type="button" class="btn btn-warning btn-sm"
+                                    ng-click="partyCtrl.remove(party)">x</button></td>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>
